@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Dashboard } from './components/Dashboard';
 import { Visualizer } from './components/Visualizer';
 
-
 export const App = () => {
     const colours = ["#EFBDEB", "#0275d8", "#5cb85c", "#5bc0de", "#f0ad4e", "#E2BF8D", "#d9534f", "#E14E72", "#B68CB8"]
     let unique_array = [];  
@@ -22,7 +21,7 @@ export const App = () => {
     console.log(arr)
     return (
         <>
-            <Dashboard arr={arr} setArr={setArr} />
+            <Dashboard arr={arr} setArr={setArr} initialState={initial_array}/>
             <Visualizer arr={arr} setArr={setArr} />
         </>
     )
