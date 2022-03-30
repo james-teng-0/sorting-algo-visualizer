@@ -1,3 +1,5 @@
 # Sorting Algorithm Visualizer
 Built with react and framer motion.
-Only bubblesort works right now ;(
+Work in progress!
+- no mobile responsiveness 
+- Only bubblesort works right now ;(
