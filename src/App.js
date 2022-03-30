@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Dashboard } from './components/Dashboard';
+import { Visualizer } from './components/Visualizer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export const App = () => {
+    var unique_num = [];
+    while (unique_num.length < 50){
+        var r = Math.floor(Math.random() * 100) + 1;
+        if(unique_num.indexOf(r) === -1) unique_num.push(r);    
+    }
+
+    const [arr, setArr] = useState(unique_num);
+
+    console.log(arr)
+    return (
+        <>
+            <Dashboard arr={arr} setArr={setArr} />
+            <Visualizer arr={arr} setArr={setArr} />
+        </>
+    )
 }
-
-export default App;
