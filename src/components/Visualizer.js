@@ -8,17 +8,16 @@ const VisualizerWrapper = styled.div`
 `
 
 const VisualizerBlock = styled(motion.li)`
-
+  background: ${props => props.colour};
   display: flex;
   justify-content: center;
   align-items: center;
   align-self: flex-end;
 
-  font-size: 15px;
-  border-style: solid;
+  font-size: 12px;
+  border: 0;
+  outline: 1px solid black;
 
-  margin-left: ${props => props.margin}vw;
-  margin-right: ${props => props.margin}vw;
   height: ${props => props.height}vh;
   width: ${props => props.width}vw;
 
@@ -34,20 +33,21 @@ const spring = {
 
 
 export const Visualizer = (props) => {
+  console.log(props.arr)
 
   return (
     <VisualizerWrapper>
       {props.arr.map((background) => {
           return (
           <VisualizerBlock
-            width={50/props.arr.length}
-            margin={22/props.arr.length}
-            height={75 * (background/99)}
-            key={background}
+            width={95/props.arr.length}
+            height={75 * (background[0]/99)}
+            key={background[0]}
+            colour={background[1]}
             layout
             transition={spring}
-            style={{ background  }} 
-          > {background}  
+            style={{ background }} 
+          > {background[0]}  
           </VisualizerBlock>
         );
         })
