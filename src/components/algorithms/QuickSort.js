@@ -1,4 +1,5 @@
 import {swap} from './Helpers'
+import {disableButtons, enableButtons} from './Helpers'
 
 /* This function takes last element as pivot, places
    the pivot element at its correct position in sorted
@@ -39,6 +40,7 @@ const partition = async (arr, setArr, low, high) => {
           high --> Ending index
  */
 export const QuickSort = async (arr, setArr, low, high) => {
+    disableButtons();
     if (low < high) {
         // pi is partitioning index, arr[p]
         // is now at right place
@@ -49,5 +51,6 @@ export const QuickSort = async (arr, setArr, low, high) => {
         await QuickSort(arr, setArr, low, pi - 1);
         await QuickSort(arr, setArr, pi + 1, high);
     }
+    enableButtons();
 }
 
