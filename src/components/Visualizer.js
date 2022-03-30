@@ -26,9 +26,8 @@ const VisualizerBlock = styled(motion.li)`
 `
 
 const spring = {
+  duration: .25,  
   type: "spring",
-  damping: 20,
-  stiffness: 300
 };
 
 
@@ -42,12 +41,11 @@ export const Visualizer = (props) => {
           <VisualizerBlock
             width={95/props.arr.length}
             height={75 * (background[0]/99)}
-            key={background[0]}
             colour={background[1]}
             layout
-            transition={spring}
-            style={{ background }} 
-          > {background[0]}  
+            transition={spring} 
+          > 
+            {background[0]}  
           </VisualizerBlock>
         );
         })

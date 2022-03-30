@@ -5,7 +5,7 @@ import {swap} from './Helpers'
    array, and places all smaller (smaller than pivot)
    to left of pivot and all greater elements to right
    of pivot */
-const partition = (arr, setArr, low, high) => {
+const partition = async (arr, setArr, low, high) => {
  
     // pivot
     let pivot = arr[high];
@@ -24,11 +24,11 @@ const partition = (arr, setArr, low, high) => {
             // Increment index of
             // smaller element
             i++;
-            swap(arr, i, j);
+            await swap(arr, i, j);
             setArr([...arr]);
         }
     }
-    swap(arr, i + 1, high);
+    await swap(arr, i + 1, high);
     setArr([...arr]);
     return (i + 1);
 }
@@ -38,16 +38,16 @@ const partition = (arr, setArr, low, high) => {
           low --> Starting index,
           high --> Ending index
  */
-export const QuickSort = (arr, setArr, low, high) => {
+export const QuickSort = async (arr, setArr, low, high) => {
     if (low < high) {
         // pi is partitioning index, arr[p]
         // is now at right place
-        let pi = partition(arr, setArr, low, high);
+        let pi = await partition(arr, setArr, low, high);
  
         // Separately sort elements before
         // partition and after partition
-        QuickSort(arr, setArr, low, pi - 1);
-        QuickSort(arr, setArr, pi + 1, high);
+        await QuickSort(arr, setArr, low, pi - 1);
+        await QuickSort(arr, setArr, pi + 1, high);
     }
 }
 

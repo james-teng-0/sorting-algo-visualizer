@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Dashboard } from './components/Dashboard';
 import { Visualizer } from './components/Visualizer';
+import uuid from 'node-uuid'
 
 export const App = () => {
     const colours = ["#EFBDEB", "#0275d8", "#5cb85c", "#5bc0de", "#f0ad4e", "#E2BF8D", "#d9534f", "#E14E72", "#B68CB8"]
@@ -11,7 +12,7 @@ export const App = () => {
         let r = Math.floor(Math.random() * 100) + 1;
         if (unique_array.indexOf(r) === -1) {
             unique_array.push(r);
-            initial_array.push([r, colours[i % 9]]); // create 2d array of unique numbers in first index, and colour in second index
+            initial_array.push([r, colours[i % 9], uuid()]); // create 2d array of unique numbers in first index, and colour in second index
         }
         i++;
     }

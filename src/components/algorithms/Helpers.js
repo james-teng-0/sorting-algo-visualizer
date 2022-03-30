@@ -1,11 +1,10 @@
-export const sleep = (time) => {
-    return new Promise( resolve => setTimeout(resolve, time))
-}
+export const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-export const swap = (arr, i, j) => {
+export const swap = async (arr, i, j) => {
     let temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
+    await sleep(0.1)
 }
 
 export const disableButtons = () => {
